@@ -37,7 +37,7 @@ A parcela de energia no exemplo é *180 × R$ 1,062 = R$ 191,16*. Para aparelhos
 
 | Opção | O que muda em 30 dias | Economia estimada | Investimento inicial |
 | --- | --- | --- | --- |
-| LED e banho mais curto | Reduzem o consumo em 36,7 kWh. | R$ 38,98 | R$ 45 |
+| LED e banho mais curto | Reduzem o consumo em 36,7 kWh. | R$ 38,98 | R$ 25 |
 | Energia solar | Gera 101,25 kWh. O modelo estima 70,875 kWh de abatimento. | R$ 45,27, após descontar R$ 30 de custo no período | R$ 6.000 |
 
 A redução de consumo vem de 22,95 kWh com as lâmpadas e 13,75 kWh com o banho mais curto. A geração solar usa *1 × 4,5 × 30 × 0,75 = 101,25 kWh*. O abatimento do exemplo aplica 70% ao menor valor entre geração e consumo. A economia solar no exemplo é 70,875 kWh × R$ 1,062/kWh − R$ 30, ou cerca de R$ 45,27. Ao combinar as duas opções, o site recalcula o abatimento com o consumo que sobra após as medidas de economia.
