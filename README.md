@@ -25,7 +25,7 @@ O exemplo simula uma casa fictícia durante *30 dias*. Os valores abaixo foram e
 | --- | --- |
 | *180 kWh em 30 dias* | É o consumo total adotado para a casa fictícia. Os aparelhos listados somam 149,45 kWh e os 30,55 kWh restantes representam outros usos da casa. |
 | *R$ 1,062 por kWh* | É uma tarifa ilustrativa para comparar os cenários com o mesmo preço por kWh. Para simular a sua casa, use a tarifa da sua fatura. |
-| *R$ 45 para as lâmpadas* | O exemplo considera três lâmpadas LED a R$ 15 cada e uma redução de cinco minutos por dia no uso do chuveiro. |
+| *R$ 25 para as lâmpadas* | O exemplo considera três lâmpadas LED a R$ 15 cada e uma redução de cinco minutos por dia no uso do chuveiro. |
 | *R$ 6.000 para o sistema solar* | É um valor ilustrativo de instalação para comparar o investimento com o das lâmpadas. O exemplo usa um sistema de 1 kWp e R$ 30 de custo no período. Para avaliar uma instalação real, use um orçamento para o seu imóvel. |
 | *4,5 horas de sol pico, 75% de desempenho e 70% de aproveitamento para abatimento* | São hipóteses ajustáveis para estimar a geração e a economia solar. Para refazer a simulação, consulte os dados de sol da sua região no Atlas do INPE e verifique as condições de compensação com a distribuidora. |
 
