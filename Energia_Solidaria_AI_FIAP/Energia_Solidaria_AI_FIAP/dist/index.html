@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f6fc">
+  <meta name="description" content="Calcule o consumo da sua casa, compare eficiência e energia solar e encontre orientações de apoio na conta de luz.">
+  <title>Energia Solidária AI · Global Solution FIAP</title>
+  <link rel="icon" href="marca.png" type="image/png">
+  <script src="theme.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="header">
+    <div class="shell header-inner">
+      <a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true"></span><span>Energia Solidária <b>AI</b></span></a>
+      <nav aria-label="Navegação principal">
+        <a href="#simulador">Simulador</a>
+        <a href="#comparacao">Comparar</a>
+        <a href="#apoio">Apoio social</a>
+      </nav>
+      <button class="button button-outline theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden><span class="theme-symbol" aria-hidden="true"></span> Modo escuro</button>
+    </div>
+  </header>
+  <main class="shell" id="conteudo">
+    <section class="hero" id="inicio" aria-labelledby="titulo">
+      <div class="hero-copy">
+        <p class="eyebrow hero-eyebrow"><span></span> GLOBAL SOLUTION · FIAP</p>
+        <h1 id="titulo">Entenda sua conta.<br><em>Gaste menos energia.</em></h1>
+        <p>Descubra o que mais consome na sua casa, compare formas de economizar e saiba onde buscar ajuda com a conta de luz.</p>
+        <div class="hero-actions"><a class="button button-accent" href="#simulador">Simular minha conta <span aria-hidden="true">↓</span></a><a class="hero-link" href="#apoio">Ver apoio social <span aria-hidden="true">→</span></a></div>
+      </div>
+      <img class="hero-art" src="casa-solar.jpg" width="627" height="318" alt="Casa com painéis solares no telhado e montanhas ao fundo.">
+    </section>
+
+    <section class="section" id="simulador" aria-labelledby="titulo-simulador">
+      <div class="section-heading"><div><h2 id="titulo-simulador">Simulador residencial</h2><p>Para famílias que precisam reduzir o peso da conta de luz no orçamento. Use sua fatura ou explore o exemplo.</p></div><button class="button button-outline" id="reset-example" type="button"><span aria-hidden="true">↻</span> Carregar exemplo</button></div>
+      <div class="dashboard">
+        <section class="card bill-card" aria-labelledby="titulo-conta">
+          <div class="card-heading"><div class="section-icon icon-bill" aria-hidden="true"></div><div><h3 id="titulo-conta">Dados da conta</h3><p id="scenario-status" aria-live="polite">Exemplo ilustrativo</p></div></div>
+          <div class="field"><label for="consumption">Consumo no período</label><div class="input-unit"><input id="consumption" inputmode="decimal" maxlength="14" value="180" required><span>kWh</span></div></div>
+          <div class="field"><label for="tariff">Tarifa de energia</label><div class="input-unit"><input id="tariff" inputmode="decimal" maxlength="14" value="1,062" required><span>R$/kWh</span></div></div>
+          <div class="field"><label for="days">Dias do período</label><div class="input-unit"><input id="days" inputmode="numeric" maxlength="2" value="30" required><span>dias</span></div></div>
+          <p class="form-hint">Use o consumo, a tarifa efetiva de energia por kWh e os dias de leitura da fatura. Os valores iniciais são hipóteses de um exemplo de 30 dias.</p>
+          <p class="feedback error" id="bill-error" role="status" hidden></p>
+        </section>
+        <section class="card result-card" aria-labelledby="titulo-estimativa">
+          <div class="card-heading"><div class="section-icon icon-bolt" aria-hidden="true"></div><div><h3 id="titulo-estimativa">Resumo do período</h3><p>Os valores mudam conforme você edita.</p></div></div>
+          <div class="cost-block"><span>Parcela de energia estimada</span><strong id="bill-cost">R$ 191,16</strong><small id="bill-formula">180 kWh × R$ 1,062/kWh</small></div>
+          <div class="mini-results">
+            <div><span>Equipamentos listados</span><strong id="device-total">149,45 kWh</strong></div>
+            <div><span id="remaining-label">Consumo restante</span><strong id="remaining-total">30,55 kWh</strong></div>
+          </div>
+          <p class="form-hint">A fatura pode incluir tributos, bandeiras, iluminação pública, encargos e descontos.</p>
+        </section>
+        <section class="card device-card" aria-labelledby="titulo-aparelhos">
+          <div class="section-heading compact"><div class="card-heading"><div class="section-icon icon-plug" aria-hidden="true"></div><div><h3 id="titulo-aparelhos">Equipamentos da casa</h3><p>Confira o consumo estimado de cada aparelho.</p></div></div><button type="button" class="button button-outline" id="add-device"><span aria-hidden="true">+</span> Adicionar equipamento</button></div>
+          <div class="device-table-wrap">
+            <table class="device-table">
+              <thead><tr><th scope="col">Equipamento</th><th scope="col">Potência</th><th scope="col">Uso por dia</th><th scope="col">Quantidade</th><th scope="col">Consumo</th><th scope="col">Custo</th><th scope="col"><span class="sr-only">Ações</span></th></tr></thead>
+              <tbody id="device-rows"></tbody>
+            </table>
+          </div>
+          <p class="feedback" id="device-note" hidden></p>
+          <p class="form-hint">Para aparelhos que ligam e desligam, como a geladeira, estime as horas em que o motor funciona. Se você conhece o consumo em kWh do aparelho para o período, informe esse valor diretamente ao adicioná-lo.</p>
+        </section>
+      </div>
+    </section>
+
+    <section class="section" id="comparacao" aria-labelledby="titulo-comparacao">
+      <div class="section-heading"><div><h2 id="titulo-comparacao">Compare como economizar</h2><p>Simule mudanças de hábito, troca por LED e geração solar para o mesmo período.</p></div></div>
+      <div class="scenario-grid">
+        <section class="card scenario" aria-labelledby="titulo-eficiencia">
+          <div class="card-heading"><div class="section-icon icon-bolt" aria-hidden="true"></div><div><h3 id="titulo-eficiencia">Eficiência energética</h3><p>Reduza o consumo de lâmpadas e chuveiro.</p></div></div>
+          <div class="scenario-result efficiency-result"><span>Economia estimada no período</span><strong id="eff-saving">—</strong><small id="eff-energy"></small></div>
+          <details>
+            <summary>Ajustar medidas de eficiência</summary>
+            <fieldset class="scenario-fields"><legend class="sr-only">Troca de lâmpadas</legend>
+              <label class="toggle"><input id="led-on" type="checkbox" checked> Trocar lâmpadas por LED</label>
+              <div id="led-fields" class="field-grid">
+                <label class="field">Quantidade<input id="led-qty" inputmode="numeric" value="3" maxlength="8"></label>
+                <label class="field">Potência atual (W)<input id="led-old" inputmode="decimal" value="60" maxlength="12"></label>
+                <label class="field">Potência nova (W)<input id="led-new" inputmode="decimal" value="9" maxlength="12"></label>
+                <label class="field">Uso diário (h)<input id="led-hours" inputmode="decimal" value="5" maxlength="12"></label>
+                <label class="field">Custo total da troca (R$)<input id="led-cost" inputmode="decimal" value="45" maxlength="14"></label>
+              </div>
+            </fieldset>
+            <fieldset class="scenario-fields"><legend class="sr-only">Redução de tempo de banho</legend>
+              <label class="toggle"><input id="shower-on" type="checkbox" checked> Reduzir o tempo de banho</label>
+              <div id="shower-fields" class="field-grid">
+                <label class="field">Potência do chuveiro (W)<input id="shower-power" inputmode="decimal" value="5500" maxlength="12"></label>
+                <label class="field">Uso total atual (min/dia)<input id="shower-current" inputmode="decimal" value="27" maxlength="12"></label>
+                <label class="field">Tempo a reduzir (min/dia)<input id="shower-minutes" inputmode="decimal" value="5" maxlength="12"></label>
+              </div>
+            </fieldset>
+            <p class="form-hint">Para a troca por LED, compare lâmpadas com luminosidade equivalente. Os campos deste cenário são editáveis e independentes da lista de equipamentos.</p>
+          </details>
+          <p class="feedback error" id="eff-error" role="status" hidden></p>
+        </section>
+        <section class="card scenario" aria-labelledby="titulo-solar">
+          <div class="card-heading"><div class="section-icon icon-sun" aria-hidden="true">☀</div><div><h3 id="titulo-solar">Energia solar</h3><p>Estime a geração e a economia líquida.</p></div></div>
+          <div class="scenario-result solar-result"><span>Economia líquida no período</span><strong id="solar-saving">—</strong><small id="solar-energy"></small></div>
+          <details>
+            <summary>Ajustar sistema fotovoltaico</summary>
+            <div class="field-grid scenario-fields">
+              <label class="field">Potência instalada (kWp)<input id="solar-power" inputmode="decimal" value="1" maxlength="12"></label>
+              <label class="field">Horas de sol pico por dia<input id="solar-hours" inputmode="decimal" value="4,5" maxlength="12"></label>
+              <label class="field">Desempenho do sistema (%)<input id="solar-performance" inputmode="decimal" value="75" maxlength="12"></label>
+              <label class="field">Fração compensável (%)<input id="solar-credit" inputmode="decimal" value="70" maxlength="12"></label>
+              <label class="field">Investimento inicial (R$)<input id="solar-investment" inputmode="decimal" value="6000" maxlength="14"></label>
+              <label class="field">Custos no período (R$)<input id="solar-cost" inputmode="decimal" value="30" maxlength="14"></label>
+            </div>
+            <p class="form-hint">Os valores iniciais são ilustrativos. A fração compensável é uma hipótese do modelo. Consulte a irradiação da sua região no Atlas do INPE e use um orçamento do seu imóvel.</p>
+          </details>
+          <p class="feedback error" id="solar-error" role="status" hidden></p>
+        </section>
+      </div>
+      <section class="card comparison-card" aria-labelledby="titulo-lado">
+        <h3 id="titulo-lado">Cenários lado a lado</h3>
+        <p class="comparison-intro">Estimativas para a parcela de energia em <span id="comparison-days">30 dias</span>.</p>
+        <dl class="compare-chart" id="compare-chart"></dl>
+        <div class="compare-table-wrap"><table class="compare-table"><thead><tr><th scope="col">Indicador</th><th scope="col">Eficiência</th><th scope="col">Solar</th></tr></thead><tbody id="compare-rows"></tbody></table></div>
+        <div class="viability-grid">
+          <article><h4>Quando a eficiência faz sentido</h4><p>Banhos mais curtos podem reduzir o consumo sem compra de equipamento. A troca por LED faz sentido se as lâmpadas atuais usam mais potência para a mesma luminosidade. Compare lúmens na embalagem e dê destino adequado às lâmpadas retiradas.</p></article>
+          <article><h4>Quando a energia solar faz sentido</h4><p>Considere área e sombra no telhado, autorização do imóvel, orçamento, regras da distribuidora e manutenção. A geração renovável depende da irradiação local. Planeje também o descarte dos painéis ao fim da vida útil.</p></article>
+        </div>
+        <p class="form-hint">A eficiência reduz a demanda de eletricidade. A geração solar usa uma fonte renovável e depende das condições do local. Lâmpadas e painéis exigem descarte adequado.</p>
+        <p class="form-hint">A projeção solar simplifica a compensação. A fatura real depende da distribuidora, das regras de compensação, do custo de disponibilidade e de outras cobranças. O retorno simples supõe que o resultado do período se repita, sem juros ou financiamento.</p>
+      </section>
+    </section>
+
+    <section class="section" id="recomendacoes" aria-labelledby="titulo-recomendacoes">
+      <div class="section-heading"><div><h2 id="titulo-recomendacoes">Seu plano de economia</h2><p>Comece com medidas que cabem no seu orçamento.</p></div></div>
+      <div class="tip-grid" id="tips"></div>
+      <section class="card assistant" aria-labelledby="titulo-assistente">
+        <div class="card-heading"><div class="section-icon icon-bolt" aria-hidden="true"></div><div><h3 id="titulo-assistente">Assistente de energia</h3><p>Módulo do Citizen Assist AI. As respostas usam regras, os resultados da sua simulação e referências oficiais.</p></div></div>
+        <div class="suggestions" aria-label="Perguntas sugeridas">
+          <button type="button" data-question="O que mais consome?">O que mais consome?</button>
+          <button type="button" data-question="Compare eficiência e solar">Compare eficiência e solar</button>
+          <button type="button" data-question="Como obter a Tarifa Social?">Como obter a Tarifa Social?</button>
+        </div>
+        <form id="assistant-form" class="assistant-form"><label for="question" class="sr-only">Pergunte sobre consumo, eficiência, solar ou apoio social</label><input id="question" type="text" maxlength="220" required placeholder="Pergunte sobre consumo, solar ou Tarifa Social"><button type="submit" class="button button-dark">Perguntar <span aria-hidden="true">→</span></button></form>
+        <div class="assistant-answer" id="answer-panel" hidden>
+          <p id="answer" role="status"></p>
+          <div id="answer-sources" class="answer-sources" aria-label="Fontes da resposta"></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="section support-section" id="apoio" aria-labelledby="titulo-apoio">
+      <div class="section-heading"><div><h2 id="titulo-apoio">Apoio com a conta de luz</h2><p>Confira os benefícios e saiba como buscar atendimento gratuito.</p></div></div>
+      <div class="support-grid">
+        <article class="support-card"><span class="support-tag">Tarifa Social</span><h3>Primeiros 80 kWh</h3><p>Famílias elegíveis têm desconto de 100% na tarifa de energia dos primeiros 80 kWh do mês. O excedente e outras cobranças da fatura podem ser cobrados.</p><p>Confira os critérios para famílias de baixa renda no CadÚnico, beneficiários do BPC e famílias com uso contínuo de equipamento elétrico para tratamento.</p><a href="https://www.gov.br/aneel/pt-br/assuntos/tarifas/tarifa-social" target="_blank" rel="noopener noreferrer">Consultar a ANEEL →</a></article>
+        <article class="support-card"><span class="support-tag">Desconto Social</span><h3>Consumo de até 120 kWh</h3><p>Famílias do CadÚnico com renda mensal por pessoa acima de meio e até um salário mínimo podem consultar a isenção da parcela da Conta de Desenvolvimento Energético (CDE) quando o consumo mensal é de até 120 kWh.</p><p>Confira o enquadramento na conta ou com a distribuidora.</p><a href="https://www.gov.br/mme/pt-br/assuntos/noticias/2023-2026/novo-desconto-social-na-conta-de-luz-ja-beneficia-familias-de-baixa-renda-em-todo-o-brasil" target="_blank" rel="noopener noreferrer">Consultar o Ministério de Minas e Energia →</a></article>
+      </div>
+      <section class="card social-form-card" aria-labelledby="titulo-social-form">
+        <h3 id="titulo-social-form">Qual caminho posso consultar?</h3>
+        <p>Faça uma pré-triagem opcional. Os dados ficam nesta página e você não precisa informar CPF ou NIS.</p>
+        <form id="social-form" novalidate>
+          <div class="social-fields">
+            <label class="field">Renda mensal da família (R$)<input id="social-income" inputmode="decimal" maxlength="14" required placeholder="Ex. 1.500,00"></label>
+            <label class="field">Pessoas na família<input id="social-people" inputmode="numeric" maxlength="4" required placeholder="Ex. 3"></label>
+            <label class="field">Cadastro Único<select id="social-cad"><option value="unknown">Não sei</option><option value="yes">Sim, a família está inscrita</option><option value="no">Não</option></select></label>
+          </div>
+          <div class="social-checks"><label class="toggle"><input type="checkbox" id="social-bpc"> Alguém da família recebe BPC</label><label class="toggle"><input type="checkbox" id="social-medical"> A família usa equipamento elétrico de forma contínua para tratamento de saúde</label></div>
+          <p class="form-hint">Referência de 2026: salário mínimo de R$ 1.621,00. A distribuidora confirma o enquadramento e o valor do benefício.</p>
+          <button class="button button-dark" type="submit">Ver orientação <span aria-hidden="true">→</span></button>
+          <p class="feedback" id="social-result" role="status" hidden></p>
+        </form>
+      </section>
+      <aside class="help-strip"><div><h3>Onde buscar ajuda</h3><p>Procure o CRAS ou posto do CadÚnico para inscrição ou atualização gratuita. Se o benefício esperado não aparecer na fatura, fale com a distribuidora. Para orientação do MDS, ligue <a href="tel:121">121</a>.</p></div><a class="button button-outline" href="https://www.gov.br/pt-br/servicos/inscrever-se-no-cadastro-unico-para-programas-sociais-do-governo-federal" target="_blank" rel="noopener noreferrer">Como se cadastrar →</a></aside>
+    </section>
+
+    <section class="section sources" aria-labelledby="titulo-metodo">
+      <details>
+        <summary id="titulo-metodo">Como calculamos e fontes oficiais</summary>
+        <ul>
+          <li><b>Consumo por aparelho:</b> potência em W ÷ 1.000 × horas por dia × dias × quantidade. Custo = kWh × tarifa informada.</li>
+          <li><b>Eficiência:</b> diferença de potência entre lâmpadas × tempo × quantidade, somada à economia de tempo de uso do chuveiro. As potências são convertidas em kW.</li>
+          <li><b>Solar:</b> kWp × horas de sol pico × dias × fator de desempenho. Economia líquida = menor valor entre geração e consumo × fração compensável × tarifa − custos do período.</li>
+          <li><b>Eficiência + solar:</b> a compensação é recalculada sobre o consumo após as medidas de eficiência.</li>
+        </ul>
+        <p><a href="https://www.gov.br/aneel/pt-br/assuntos/geracao-distribuida/" target="_blank" rel="noopener noreferrer">Geração distribuída · ANEEL →</a> <a href="https://labren.ccst.inpe.br/atlas_2017.html" target="_blank" rel="noopener noreferrer">Atlas de Energia Solar · INPE →</a> <a href="https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/lampadas-e-luminarias-led-portaria-inmetro-no-231-2026-consumidores/para-pagar-uma-conta-de-energia-mais-barata-devo-comprar-lampadas-e-luminarias-de-luz-201cfria201d" target="_blank" rel="noopener noreferrer">Eficiência de lâmpadas · Inmetro →</a> <a href="https://www.gov.br/mme/pt-br/assuntos/noticias/julho-26/descubra-como-aplicar-a-eficiencia-energetica-no-seu-dia-a-dia" target="_blank" rel="noopener noreferrer">Dicas de eficiência · MME →</a> <a href="https://legis.senado.gov.br/norma/41882097/publicacao/41888369" target="_blank" rel="noopener noreferrer">Salário mínimo de 2026 · Decreto nº 12.797/2025 →</a></p>
+      </details>
+    </section>
+  </main>
+  <footer class="footer"><div class="shell"><a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true"></span><span>Energia Solidária <b>AI</b></span></a><span>Projeto acadêmico · Global Solution FIAP</span></div></footer>
+
+  <dialog id="device-dialog" aria-labelledby="dialog-title">
+    <form id="device-form" novalidate>
+      <div class="dialog-heading"><h2 id="dialog-title">Adicionar equipamento</h2><button id="close-dialog" class="button button-outline" type="button" aria-label="Fechar formulário">×</button></div>
+      <label class="field">Nome do equipamento<input id="device-name" maxlength="55" placeholder="Ex. Ventilador" required></label>
+      <label class="field">Como calcular<select id="device-mode"><option value="power">Por potência e tempo de uso</option><option value="direct">Por consumo informado em kWh</option></select></label>
+      <div class="field-grid" id="power-fields">
+        <label class="field">Potência por unidade (W)<input id="device-watts" inputmode="decimal" maxlength="12" placeholder="Ex. 60"></label>
+        <label class="field">Uso por dia (horas)<input id="device-hours" inputmode="decimal" maxlength="12" placeholder="Ex. 5,5"></label>
+        <label class="field">Dias de uso (opcional)<input id="device-days" inputmode="numeric" maxlength="2" placeholder="Todo o período"></label>
+      </div>
+      <div id="direct-fields" hidden><label class="field">Consumo por unidade (kWh no período)<input id="device-kwh" inputmode="decimal" maxlength="14" placeholder="Ex. 35"></label></div>
+      <label class="field">Quantidade<input id="device-quantity" inputmode="numeric" maxlength="5" value="1"></label>
+      <p id="device-error" class="feedback error" role="status" hidden></p>
+      <div class="dialog-actions"><button id="cancel-dialog" class="button button-outline" type="button">Cancelar</button><button class="button button-dark" type="submit">Salvar equipamento</button></div>
+    </form>
+  </dialog>
+  <p id="announcer" class="sr-only" role="status"></p>
+</body>
+</html>

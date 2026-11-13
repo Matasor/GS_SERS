@@ -1,0 +1,65 @@
+ENERGIA SOLIDÁRIA AI
+Ficha de testes com usuários
+
+Situação — sessões com participantes pendentes.
+Use uma cópia por pessoa, com um código como P01 ou P02.
+Peça que a pessoa use o site com os dados fictícios de “Carregar exemplo”.
+Anote a dificuldade e o comentário com as palavras da pessoa, sem nomes,
+CPF, endereço ou dados reais da conta.
+
+Código do participante:
+Dispositivo usado:
+
+TAREFA 1 — Encontrar o valor da parcela de energia
+Peça que a pessoa encontre o valor no exemplo e explique o que ele inclui.
+Resultado — [ ] Sem ajuda  [ ] Com ajuda  [ ] Não concluiu
+O que observei:
+Comentário da pessoa:
+
+TAREFA 2 — Identificar o aparelho que mais consome
+Peça que a pessoa encontre o aparelho e mostre onde viu esse dado.
+Resultado — [ ] Sem ajuda  [ ] Com ajuda  [ ] Não concluiu
+O que observei:
+Comentário da pessoa:
+
+TAREFA 3 — Adicionar um aparelho
+Peça que a pessoa adicione um ventilador de 60 W usado 5 horas por dia
+e encontre o consumo na tabela.
+Resultado — [ ] Sem ajuda  [ ] Com ajuda  [ ] Não concluiu
+O que observei:
+Comentário da pessoa:
+
+TAREFA 4 — Comparar formas de economizar
+Peça que a pessoa imagine que tem pouco dinheiro para investir e diga
+por onde começaria depois de comparar os cenários.
+Resultado — [ ] Sem ajuda  [ ] Com ajuda  [ ] Não concluiu
+O que observei:
+Comentário da pessoa:
+
+TAREFA 5 — Usar o assistente
+Peça que a pessoa pergunte sobre energia solar e encontre a fonte
+indicada na resposta.
+Resultado — [ ] Sem ajuda  [ ] Com ajuda  [ ] Não concluiu
+O que observei:
+Comentário da pessoa:
+
+TAREFA 6 — Encontrar apoio com a conta de luz
+Peça que a pessoa encontre no site onde buscaria orientação.
+Resultado — [ ] Sem ajuda  [ ] Com ajuda  [ ] Não concluiu
+O que observei:
+Comentário da pessoa:
+
+PERGUNTAS FINAIS
+O que ficou mais confuso?
+Resposta:
+
+Qual informação você usaria em casa? Por quê?
+Resposta:
+
+AJUSTES E NOVO TESTE
+Tarefa e dificuldade observada:
+Mudança feita a partir do comentário:
+O que aconteceu ao repetir a tarefa:
+
+Preencha com o que aconteceu de verdade. Use “Pendente” se a mudança ou
+o novo teste ainda não tiver sido feito.
