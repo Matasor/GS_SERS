@@ -1,6 +1,6 @@
 # Energia Solidária AI
 
-Global Solution da FIAP · 1º ano de Ciência da Computação (1CC)  
+Global Solution da FIAP · 1º ano de Ciência da Computação (1CCPH)  
 Citizen Assist AI · Soluções em Energias Renováveis e Sustentáveis
 
 ## Equipe
