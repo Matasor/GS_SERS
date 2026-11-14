@@ -7,7 +7,7 @@ Citizen Assist AI · Soluções em Energias Renováveis e Sustentáveis
 
 | Matheus Levi Dagel | RM:571961 |
 | Guilherme De Lucena Fontes| RM: 569658 |
-| Nome completo | RM |
+| Ricardo Tunes Vaca | RM: 555919 |
 
 
 ## Por que fizemos o projeto?
